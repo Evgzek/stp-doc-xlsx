@@ -249,8 +249,10 @@ public class Main {
             cell.setCellStyle(cellStyle5);
             cell.setCellValue(1100 - expenses[i]);
             sum_3 += 1100 - expenses[i];
-//            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
-//            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
+            for (int j = 0; j < 10; j++) {
+                RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,j,j), sheet);
+                RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,j,j), sheet);
+            }
         }
 
 
