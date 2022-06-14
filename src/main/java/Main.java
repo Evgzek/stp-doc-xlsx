@@ -346,19 +346,6 @@ public class Main {
         cell = row.createCell(7);
         cell.setCellStyle(cellStyle3);
         cell.setCellValue("(Ф.И.О.)");
-
-
-
-
-
-
-
-
-
-
-
-
-
         try {
             FileOutputStream out = new FileOutputStream("test.xls");
             wb.write(out);
