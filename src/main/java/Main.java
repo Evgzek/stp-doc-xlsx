@@ -24,6 +24,9 @@ public class Main {
         CellStyle cellStyle5 = wb.createCellStyle();
         CellStyle cellStyle6 = wb.createCellStyle();
         CellStyle cellStyle7 = wb.createCellStyle();
+        CellStyle cellStyle8 = wb.createCellStyle();
+        CellStyle cellStyle9 = wb.createCellStyle();
+        cellStyle8.setFont(font);
         cellStyle7.setVerticalAlignment(VerticalAlignment.CENTER);
         cellStyle7.setAlignment(HorizontalAlignment.CENTER);
         cellStyle7.setFont(font_sum);
@@ -46,6 +49,8 @@ public class Main {
         cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
         cellStyle1.setVerticalAlignment(VerticalAlignment.CENTER);
         cellStyle1.setAlignment(HorizontalAlignment.LEFT);
+        cellStyle9.setVerticalAlignment(VerticalAlignment.CENTER);
+        cellStyle9.setAlignment(HorizontalAlignment.LEFT);
         Row row = sheet.createRow(0);
         Cell cell = row.createCell(7);
         cell.setCellValue("УТВЕРЖАДЮ:");
@@ -65,7 +70,7 @@ public class Main {
         sheet.setColumnWidth(0, 10*256);
         sheet.setColumnWidth(1, 15*256);
         sheet.setColumnWidth(2, 10*256);
-        sheet.setColumnWidth(3, 30*256);
+        sheet.setColumnWidth(3, 45*256);
         sheet.setColumnWidth(4, 12*256);
         sheet.setColumnWidth(5, 12*256);
         sheet.setColumnWidth(6, 15*256);
@@ -238,7 +243,7 @@ public class Main {
                 cell.setCellValue("4Б");
             }else cell.setCellValue("4B");
             cell = row.createCell(3);
-            cell.setCellStyle(cellStyle5);
+            cell.setCellStyle(cellStyle9);
             cell.setCellValue(surname[i]);
             cell = row.createCell(4);
             cell.setCellStyle(cellStyle5);
@@ -295,7 +300,52 @@ public class Main {
         for (int i = 4; i < 10; i++) {
             RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(66,66,i,i), sheet);
         }
-
+        sheet.addMergedRegion(new CellRangeAddress(68, 68, 1,3));
+        row = sheet.createRow(68);
+        cell = row.createCell(1);
+        cell.setCellStyle(cellStyle8);
+        cell.setCellValue("Отчет составлен в двух экземплярах.");
+        sheet.addMergedRegion(new CellRangeAddress(70, 70, 1,2));
+        row = sheet.createRow(70);
+        cell = row.createCell(1);
+        cell.setCellStyle(cellStyle8);
+        cell.setCellValue("Подписи сторон:");
+        sheet.addMergedRegion(new CellRangeAddress(72, 72, 1,3));
+        row = sheet.createRow(72);
+        cell = row.createCell(1);
+        cell.setCellStyle(cellStyle8);
+        cell.setCellValue("Лицо, ответсвенное за организацию питания");
+        sheet.addMergedRegion(new CellRangeAddress(72, 72, 4,5));
+        sheet.addMergedRegion(new CellRangeAddress(72, 72, 7,8));
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(72,72,4,4), sheet);
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(72,72,7,8), sheet);
+        sheet.addMergedRegion(new CellRangeAddress(73, 73, 4,5));
+        sheet.addMergedRegion(new CellRangeAddress(73, 73, 7,8));
+        row = sheet.createRow(73);
+        cell = row.createCell(4);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("(подпись)");
+        cell = row.createCell(7);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("(Ф.И.О.)");
+        sheet.addMergedRegion(new CellRangeAddress(74, 74, 1,3));
+        row = sheet.createRow(74);
+        cell = row.createCell(1);
+        cell.setCellStyle(cellStyle8);
+        cell.setCellValue("Заведующий производством предпрития общественного питания");
+        sheet.addMergedRegion(new CellRangeAddress(74, 74, 4,5));
+        sheet.addMergedRegion(new CellRangeAddress(74, 74, 7,8));
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(74,74,4,4), sheet);
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(74,74,7,8), sheet);
+        sheet.addMergedRegion(new CellRangeAddress(75, 75, 4,5));
+        sheet.addMergedRegion(new CellRangeAddress(75, 75, 7,8));
+        row = sheet.createRow(75);
+        cell = row.createCell(4);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("(подпись)");
+        cell = row.createCell(7);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("(Ф.И.О.)");
 
 
 
