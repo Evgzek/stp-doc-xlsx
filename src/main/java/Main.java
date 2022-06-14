@@ -207,6 +207,7 @@ public class Main {
                 "Соколов Никита",
                 "Старостина Анна",
                 "Яковлев Николай"};
+        int [] days_fact = {2, 2, 2, 3, 2, 4, 5, 4, 4, 3, 4, 4, 4, 5, 4, 2, 4, 5, 2, 4, 2, 4, 5, 5, 4, 5, 2, 3, 4, 3, 2, 3, 4, 2, 4, 5, 2, 4, 3, 5, 5, 5, 4, 5, 3, 3, 5, 4, 3, 4};
         for (int i = 0; i < 50; i++) {
             row = sheet.createRow(16 + i);
             cell = row.createCell(0);
@@ -225,6 +226,12 @@ public class Main {
             cell = row.createCell(3);
             cell.setCellStyle(cellStyle5);
             cell.setCellValue(surname[i]);
+            cell = row.createCell(4);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(22);
+            cell = row.createCell(5);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(days_fact[i]);
 //            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
 //            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
         }
