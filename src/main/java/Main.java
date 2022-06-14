@@ -16,8 +16,16 @@ public class Main {
         CellStyle cellStyle1 = wb.createCellStyle();
         CellStyle cellStyle2 = wb.createCellStyle();
         CellStyle cellStyle3 = wb.createCellStyle();
+        CellStyle cellStyle4 = wb.createCellStyle();
+        CellStyle cellStyle5 = wb.createCellStyle();
+        cellStyle5.setVerticalAlignment(VerticalAlignment.CENTER);
+        cellStyle5.setFont(font);
+        cellStyle4.setVerticalAlignment(VerticalAlignment.TOP);
+        cellStyle4.setAlignment(HorizontalAlignment.CENTER);
+        cellStyle4.setFont(font);
         cellStyle3.setAlignment(HorizontalAlignment.CENTER);
         cellStyle3.setVerticalAlignment(VerticalAlignment.CENTER);
+        cellStyle3.setWrapText(true);
         cellStyle.setFont(font);
         cellStyle1.setFont(font);
         cellStyle.setWrapText(true);
@@ -41,7 +49,17 @@ public class Main {
         sheet.addMergedRegion(new CellRangeAddress(2, 2, 8, 9));
         sheet.setColumnWidth(8, 15*256);
         sheet.setColumnWidth(9, 15*256);
+        sheet.setColumnWidth(0, 10*256);
+        sheet.setColumnWidth(1, 15*256);
+        sheet.setColumnWidth(2, 10*256);
+        sheet.setColumnWidth(3, 30*256);
+        sheet.setColumnWidth(4, 12*256);
+        sheet.setColumnWidth(5, 12*256);
+        sheet.setColumnWidth(6, 15*256);
+        sheet.setColumnWidth(7, 15*256);
         cell.setCellStyle(cellStyle);
+        row = sheet.createRow(15);
+        row.setHeightInPoints(25);
         row = sheet.createRow(3);
         cell = row.createCell(8);
         cell.setCellValue("_____________________________");
@@ -78,8 +96,68 @@ public class Main {
         cell.setCellStyle(cellStyle3);
         row = sheet.createRow(11);
         cell = row.createCell(0);
-        RegionUtil.setBorderTop(BorderStyle.DASHED, new CellRangeAddress(11,11,0,6), sheet);
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(11,11,0,6), sheet);
+        sheet.addMergedRegion(new CellRangeAddress(11, 11, 0,9));
+        row = sheet.createRow(12);
+        cell = row.createCell(0);
+        sheet.addMergedRegion(new CellRangeAddress(12, 12, 0,9));
+        cell.setCellValue("(сокращенное наименование образовательного учреждения)");
+        cell.setCellStyle(cellStyle4);
+        row = sheet.createRow(14);
+        cell = row.createCell(0);
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 0,0));
+        cell.setCellValue("№ п/п");
         cell.setCellStyle(cellStyle3);
+        row.setHeightInPoints(45);
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 1,1));
+        cell = row.createCell(1);
+        cell.setCellValue("№ счета");
+        cell.setCellStyle(cellStyle3);
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 2,2));
+        cell = row.createCell(2);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("Класс");
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 3,3));
+        cell = row.createCell(3);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("Ф.И. ребенка");
+        sheet.addMergedRegion(new CellRangeAddress(14, 14, 4,5));
+        cell = row.createCell(4);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("Дни посещения");
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 6,6));
+        cell = row.createCell(6);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("Остаток на \r\nначало месяца, \r\nруб.");
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 7,7));
+        cell = row.createCell(7);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("Поступило в \r\nтекущем \r\nмесяце на\r\n питание, руб.");
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 8,8));
+        cell = row.createCell(8);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("Израсходовано в \r\nтекущем \r\nмесяце на\r\n питание, руб.");
+        sheet.addMergedRegion(new CellRangeAddress(14, 15, 9,9));
+        cell = row.createCell(9);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("Остаток на \r\nконец месяца, \r\nруб.");
+        row = sheet.createRow(15);
+        row.setHeightInPoints(35);
+        cell = row.createCell(4);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("плановые");
+        cell = row.createCell(5);
+        cell.setCellStyle(cellStyle3);
+        cell.setCellValue("фактические");
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(14,15,0,9), sheet);
+        RegionUtil.setBorderTop(BorderStyle.THIN, new CellRangeAddress(14,15,0,9), sheet);
+        for (int i = 0; i < 10; i++) {
+            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(14,15,i,i), sheet);
+        }
+        RegionUtil.setBorderTop(BorderStyle.THIN, new CellRangeAddress(15,15,4,5), sheet);
+
+
+
 
 
 
