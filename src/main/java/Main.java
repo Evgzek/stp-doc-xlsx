@@ -208,6 +208,8 @@ public class Main {
                 "Старостина Анна",
                 "Яковлев Николай"};
         int [] days_fact = {2, 2, 2, 3, 2, 4, 5, 4, 4, 3, 4, 4, 4, 5, 4, 2, 4, 5, 2, 4, 2, 4, 5, 5, 4, 5, 2, 3, 4, 3, 2, 3, 4, 2, 4, 5, 2, 4, 3, 5, 5, 5, 4, 5, 3, 3, 5, 4, 3, 4};
+        int sum = 0, sum_2 = 0, sum_3 = 0;
+        int [] expenses = {186, 120, 253, 233, 242, 160, 190, 251, 278, 278, 130, 111, 108, 281, 162, 146, 150, 190, 102, 230, 112, 292, 285, 154, 283, 145, 185, 219, 128, 111, 251, 285, 221, 292, 201, 148, 158, 293, 233, 162, 120, 142, 199, 154, 274, 107, 173, 161, 148, 242};
         for (int i = 0; i < 50; i++) {
             row = sheet.createRow(16 + i);
             cell = row.createCell(0);
@@ -232,18 +234,25 @@ public class Main {
             cell = row.createCell(5);
             cell.setCellStyle(cellStyle5);
             cell.setCellValue(days_fact[i]);
+            sum += days_fact[i];
+            cell = row.createCell(6);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(0);
+            cell = row.createCell(7);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(1100);
+            cell = row.createCell(8);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(expenses[i]);
+            sum_2 += expenses[i];
+            cell = row.createCell(9);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(1100 - expenses[i]);
+            sum_3 += 1100 - expenses[i];
 //            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
 //            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
         }
 
-//        for (int i = 0; i < 50; i++) {
-//            row = sheet.createRow(16 + i);
-//            cell = row.createCell(1);
-//            cell.setCellStyle(cellStyle5);
-//            cell.setCellValue(k+i+1);
-//            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,1,1), sheet);
-//            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,1,1), sheet);
-//        }
 
 
 
