@@ -156,14 +156,34 @@ public class Main {
             RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(14,15,i,i), sheet);
         }
         RegionUtil.setBorderTop(BorderStyle.THIN, new CellRangeAddress(15,15,4,5), sheet);
+        int k = 6610100;
         for (int i = 0; i < 50; i++) {
             row = sheet.createRow(16 + i);
             cell = row.createCell(0);
             cell.setCellStyle(cellStyle5);
             cell.setCellValue(i+1);
-            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
-            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
+            cell = row.createCell(1);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(k+i+1);
+            cell = row.createCell(2);
+            cell.setCellStyle(cellStyle5);
+            if (i < 15){
+                cell.setCellValue("4A");
+            }else if (i < 30){
+                cell.setCellValue("4Б");
+            }else cell.setCellValue("4B");
+//            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
+//            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
         }
+
+//        for (int i = 0; i < 50; i++) {
+//            row = sheet.createRow(16 + i);
+//            cell = row.createCell(1);
+//            cell.setCellStyle(cellStyle5);
+//            cell.setCellValue(k+i+1);
+//            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,1,1), sheet);
+//            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,1,1), sheet);
+//        }
 
 
 
