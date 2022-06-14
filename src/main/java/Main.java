@@ -19,6 +19,7 @@ public class Main {
         CellStyle cellStyle4 = wb.createCellStyle();
         CellStyle cellStyle5 = wb.createCellStyle();
         cellStyle5.setVerticalAlignment(VerticalAlignment.CENTER);
+        cellStyle5.setAlignment(HorizontalAlignment.CENTER);
         cellStyle5.setFont(font);
         cellStyle4.setVerticalAlignment(VerticalAlignment.TOP);
         cellStyle4.setAlignment(HorizontalAlignment.CENTER);
@@ -155,6 +156,15 @@ public class Main {
             RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(14,15,i,i), sheet);
         }
         RegionUtil.setBorderTop(BorderStyle.THIN, new CellRangeAddress(15,15,4,5), sheet);
+        for (int i = 0; i < 50; i++) {
+            row = sheet.createRow(16 + i);
+            cell = row.createCell(0);
+            cell.setCellStyle(cellStyle5);
+            cell.setCellValue(i+1);
+            RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
+            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,0,0), sheet);
+        }
+
 
 
 
