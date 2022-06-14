@@ -10,6 +10,10 @@ public class Main {
         Workbook wb = new HSSFWorkbook();
         Sheet sheet = wb.createSheet("test");
         Font font = wb.createFont();
+        Font font_sum = wb.createFont();
+        font_sum.setFontHeightInPoints((short) 10);
+        font_sum.setFontName("Times New Roman");
+        font_sum.setBold(true);
         font.setFontHeightInPoints((short) 10);
         font.setFontName("Times New Roman");
         CellStyle cellStyle = wb.createCellStyle();
@@ -18,6 +22,14 @@ public class Main {
         CellStyle cellStyle3 = wb.createCellStyle();
         CellStyle cellStyle4 = wb.createCellStyle();
         CellStyle cellStyle5 = wb.createCellStyle();
+        CellStyle cellStyle6 = wb.createCellStyle();
+        CellStyle cellStyle7 = wb.createCellStyle();
+        cellStyle7.setVerticalAlignment(VerticalAlignment.CENTER);
+        cellStyle7.setAlignment(HorizontalAlignment.CENTER);
+        cellStyle7.setFont(font_sum);
+        cellStyle6.setVerticalAlignment(VerticalAlignment.CENTER);
+        cellStyle6.setAlignment(HorizontalAlignment.RIGHT);
+        cellStyle6.setFont(font_sum);
         cellStyle5.setVerticalAlignment(VerticalAlignment.CENTER);
         cellStyle5.setAlignment(HorizontalAlignment.CENTER);
         cellStyle5.setFont(font);
@@ -253,6 +265,35 @@ public class Main {
                 RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,j,j), sheet);
                 RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(16+i,16+i,j,j), sheet);
             }
+        }
+        row = sheet.createRow(66);
+        cell = row.createCell(3);
+        cell.setCellStyle(cellStyle6);
+        cell.setCellValue("Итого:");
+        cell = row.createCell(4);
+        cell.setCellStyle(cellStyle7);
+        cell.setCellValue(880);
+        cell = row.createCell(5);
+        cell.setCellStyle(cellStyle7);
+        cell.setCellValue(sum);
+        cell = row.createCell(6);
+        cell.setCellStyle(cellStyle7);
+        cell.setCellValue(0);
+        cell = row.createCell(7);
+        cell.setCellStyle(cellStyle7);
+        cell.setCellValue(55000);
+        cell = row.createCell(8);
+        cell.setCellStyle(cellStyle7);
+        cell.setCellValue(sum_2);
+        cell = row.createCell(9);
+        cell.setCellStyle(cellStyle7);
+        cell.setCellValue(sum_3);
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(66,66,3,3), sheet);
+        RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(66,66,3,3), sheet);
+        RegionUtil.setBorderLeft(BorderStyle.THIN, new CellRangeAddress(66,66,3,3), sheet);
+        RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(66,66,4,9), sheet);
+        for (int i = 4; i < 10; i++) {
+            RegionUtil.setBorderRight(BorderStyle.THIN, new CellRangeAddress(66,66,i,i), sheet);
         }
 
 
